@@ -3,6 +3,7 @@
 
 <head>
     <script src="/docs/5.3/assets/js/color-modes.js"></script>
+    <script src="utils/const.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -264,6 +265,7 @@
         crossorigin="anonymous"></script>
 
     <script>
+
         // Obtener la referencia a la tabla
         var tabla = document.getElementById('tabla-datos');
         recargarPagina()
@@ -281,10 +283,10 @@
         let horariosProx = null
         console.log("time ", timeString);
 async function obtenerDatos(){
-        await axios.get(`http://localhost:8000/attractionHour/`)
+        await axios.get(`${API_HOST}}/attractionHour/`)
             .then(response => {
                 let datos2 = response.data
-                const datos = datos2.filter((valor) => valor.atraction == 2); 
+                const datos = datos2.filter((valor) => valor.atraction == ATRACCION); 
                 console.log('datos ', datos);
 
                 
@@ -313,14 +315,14 @@ async function obtenerDatos(){
             .catch(error => console.error(error))
 
         
-        await axios.get(`http://localhost:8000/reserve_filter/?filtro=espera&reserve=${horariosProx[0].id}`)
+        await axios.get(`${API_HOST}/reserve_filter/?filtro=espera&reserve=${horariosProx[0].id}`)
             .then(response => {
                 var datos = response.data;
                 console.log('horariosProx', horariosProx[0].id);
                 // Generar filas de la tabla con los datos recibidos
                 datos.forEach(dato => {
 
-                    axios.get(`http://localhost:8000/team_detail/${dato.grupo}`)
+                    axios.get(`${API_HOST}/team_detail/${dato.grupo}`)
                         .then(response => {
                             let grupo = response.data.name
                             var fila = tabla.insertRow();

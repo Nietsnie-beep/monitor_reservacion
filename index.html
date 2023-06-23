@@ -2,19 +2,130 @@
 <html>
 <head>
   <title>API Data Example</title>
+  <style>
+    body {
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+  #formContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 0 auto; /* Agregado para centrar horizontalmente */
+  }
+
+    #imageContainer {
+      flex: 1;
+      text-align: center;
+    }
+
+    #formContent {
+      flex: 1;
+      padding: 0 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button[type="submit"] {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: none;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    #responseContainer {
+      margin-top: 20px;
+    }
+
+    #dataContainer {
+      margin-top: 20px;
+    }
+    .custom-button {
+    background-color: #A78974dd;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    width: 60%;
+    align-self: center;
+    top: 30px;
+    height: 30px;
+    border: none;
+    transition: background-color 0.2s;
+  }
+
+  .custom-button:hover{
+    background-color: #8a6d52dd;
+  }
+ 
+
+  .custom-button:active {
+    background-color: #6a4c30dd; /* Cambia el color de fondo al ser presionado */
+  }
+
+  .custom-button-text {
+    color: #DACFBF;
+    font-weight: 700;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px; /* Espacio entre el campo de texto y el botón */
+  }
+
+  .form-container input {
+    margin-bottom: 10px; /* Espacio debajo del campo de texto */
+  }
+  </style>
 </head>
 <body>
-    <form id="myForm">
-        <label for="idInput">Ingrese un ID:</label>
-        <input type="text" id="idInput" name="idInput">
-        <button type="submit">Buscar</button>
-      </form>
-      
+  <div id="formContainer">  
+    <div id="imageContainer">
+      <img src="20.jpg" alt="Descripción de la imagen" width="300" height="200">
+    </div>
+    <div id="formContent">
+      <div class="form-container">
+        <form id="myForm">
+          <label for="idInput">Ingrese un ID:</label>
+          <input type="text" id="idInput" name="idInput">
+          <button class="custom-button">
+            <span class="custom-button-text">Enviar</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br>
+  
 
-      <div id="responseContainer"></div>
+  <div id="responseContainer"></div>
+  <div id="dataContainer"></div>
 
-     
-      <div id="dataContainer"></div>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="api.js"></script>
 </body>
