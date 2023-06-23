@@ -266,7 +266,7 @@
     <script>
         // Obtener la referencia a la tabla
         var tabla = document.getElementById('tabla-datos');
-        recargarPagina()
+        // recargarPagina()
         // Realizar la solicitud GET a la API utilizando Axios
         console.log("recaRGANDO");
         const date = new Date();
@@ -284,7 +284,7 @@ async function obtenerDatos(){
         await axios.get(`http://localhost:8000/attractionHour/`)
             .then(response => {
                 let datos2 = response.data
-                const datos = datos2.filter((valor) => valor.atraction == 2); 
+                const datos = datos2.filter((valor) => valor.atraction == 17); //NOTE - change value to config file
                 console.log('datos ', datos);
 
                 
@@ -313,7 +313,7 @@ async function obtenerDatos(){
             .catch(error => console.error(error))
 
         
-        await axios.get(`http://localhost:8000/reserve_filter/?filtro=espera&reserve=${horariosProx[0].id}`)
+        await axios.get(`http://192.168.1.83:8000/reserve_filter/?filtro=espera&reserve=${horariosProx[0].id}`)
             .then(response => {
                 var datos = response.data;
                 console.log('horariosProx', horariosProx[0].id);

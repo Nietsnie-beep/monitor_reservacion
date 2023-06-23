@@ -1,4 +1,4 @@
-axios.get('http://192.168.1.83:8000/reserve_filter/?filtro=espera&reserve=12')
+axios.get('http://192.168.1.83:8000/reserve_filter/?filtro=espera&reserve=34')
   .then(response => {
     const datos = response.data;
     console.log('datos',datos[0].id);

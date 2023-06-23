@@ -49,7 +49,7 @@ document.getElementById('myForm').addEventListener('submit', function(event) {
         ]
     }
   
-    axios.put(`http://192.168.1.83:8000/reserve_update/${id}/2`, newData)
+    axios.put(`http://192.168.1.83:8000/reserve_update/${id}/17`, newData)
       .then(response => {
         // Manejar la respuesta exitosa
         const responseData = response.data;
