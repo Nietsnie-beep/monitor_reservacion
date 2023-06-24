@@ -1,4 +1,8 @@
-axios.get('http://192.168.1.83:8000/reserve_filter/?filtro=espera&reserve=34')
+import { API_HOST } from "./utils/const";
+import { HORARIO } from "./utils/const";
+
+
+axios.get(`${API_HOST}reserve_filter/?filtro=espera&reserve=${HORARIO}`)
   .then(response => {
     const datos = response.data;
     console.log('datos',datos[0].id);
